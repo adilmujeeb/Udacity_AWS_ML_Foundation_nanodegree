@@ -151,3 +151,39 @@ class Gaussian():
             plt.show()
             return x, y
     
+    def __add__(self, other):
+        """ Magic method to add together two Gaussian distributions
+        Args: 
+            other (Gaussian): Gaussian instance
+        Returns:
+            Gaussian: Gaussian distribution
+        """
+
+        # Calculate the results of summing two Gaussian distributions
+        # When summing two Gaussian distributions, the mean value is the sum
+        # of the means of each Gaussian.
+        # When summing two Gaussian distributions, the standard deviation is the
+        # square root of the sum of square ie sqrt(stdev_one ^ 2 + stdev_two ^ 2)
+        # create a new Gaussian object
+
+        result = Gaussian()
+        # calculate the mean and standard deviation of the sum of two Gaussians
+        result.mean = self.mean + other.mean
+        result.stdev = math.sqrt(self.stdev **2 + other.stdev **2)
+        return result  
+
+    def __repr__(self):
+        """ Magic method to output the characteristics of the Gaussian instance
+        Args:
+            None,
+        Returns:
+            string: characteristics of the Gaussian
+        """
+        # Return a string in the following format 
+        # "mean mean_value, standard deviation standard_deviation_value"
+        # where mean_value is the mean of the Gaussian distribution,
+        # and standard_deviation_value is the standard deviation of
+        # the Gaussian.
+        # For example "mean 3.5, standard deviation 1.3"
+        return "mean {}, standard deviation {}".format(self.mean, self.stdev)
+
