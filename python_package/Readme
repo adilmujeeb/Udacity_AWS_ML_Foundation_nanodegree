@@ -1,0 +1,14 @@
+This is sample python package.
+To build this package, go to the directory containing distribution directory and setup.py file.
+pip3 install . 
+OR
+pip install .
+
+Now you can use the distributions package by entering the following on python interpreter:
+
+>>> from distributions import Gaussian
+>>> g = Gaussian(10,2)
+>>> g.mean
+10
+>>> g.stdev
+2
